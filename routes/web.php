@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Basic Homepage Route
+Route::get('/', function () { return view('home'); });
+
+// Discord Authentication Routes
+Route::prefix('auth')->group(function ()
+{
+    Route::get('login', 'AuthController@redirectToDiscord')->name('login');
+    Route::get('callback', 'AuthController@handleDiscordCallback');
+    Route::get('logout', 'AuthController@handleLogout')->name('logout');
 });

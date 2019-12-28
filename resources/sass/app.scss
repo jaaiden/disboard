@@ -1,1 +1,10 @@
-//
+//////////////////////////////////////////////////////////////////////
+// You can use this file to modify the base styling of Disboard.
+// Please see the documentation page on theming to fully
+// understand what everything does here.
+//////////////////////////////////////////////////////////////////////
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
+@import "variables";
+@import "~bulma";
+@import "../../node_modules/bulma-o-steps/bulma-steps.sass";

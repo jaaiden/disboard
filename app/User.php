@@ -2,38 +2,20 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected $fillable = [ 'username', 'userid', 'discrim', 'avatar' ];
+    protected $hidden = [ 'access_token', 'remember_token' ];
+    
+    public function isStaff() { return api_IsStaff($this->userid); }
+    public function getDisplayName($badge = false, $color = 'primary') { return "{$this->username}#{$this->discrim}"; }
+    public function getStaffBadge($color = 'primary')
+    {
+        if (!$this->isStaff()) return "";
+        return "<span class='tag is-$color'>Rythm Staff</span>";
+    }
 }
