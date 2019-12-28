@@ -16,7 +16,7 @@ Disboard is ***not*** a fully-featured Discord bot site or dashboard. All Disboa
 
 2. Read up on the [Laravel Server Requirements](https://laravel.com/docs/6.x#server-requirements) to verify you can use Disboard.
 
-3. `cd` to the Disboard folder and install the necessary composer packages: `composer require`
+3. `cd` to the Disboard folder and install the necessary composer packages: `composer update`
 
 4. Copy the example dotenv file: `cp .env.example .env`
 
