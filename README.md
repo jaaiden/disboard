@@ -31,7 +31,7 @@ And that's it! Make sure to add the callback URI to your bot's OAuth2 callback U
 
 ## Next Steps
 
-Now that Disboard is up and running, you are free to add and modify Disboard to shape your new bot dashboard or site! You can find the authentication logic in `app/Http/Controllers/AuthController.php` if you need to make changes such as including the user's guild list in the authorization process. You can see how to make this change (and other changes) at [Disboard's documentation site](https://disboard.io/docs).
+Now that Disboard is up and running, you are free to add and modify Disboard to shape your new bot dashboard or site! You can find the authentication logic in `app/Http/Controllers/AuthController.php` if you need to make changes such as including the user's guild list in the authorization process. You can see how to make this change (and other changes) at Disboard's documentation site (currently a work-in-progress).
 
 ## Contributing
 
