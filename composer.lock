@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "aec1cf054081c6088f3219b0a23e5a30",
+    "content-hash": "3e89daab2bd7275e3e14595c621b6b22",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -568,60 +568,6 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
-        },
-        {
-            "name": "imliam/laravel-env-set-command",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ImLiam/laravel-env-set-command.git",
-                "reference": "be51ce036f8d5c935a5bb2d21768831a4efd0d17"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ImLiam/laravel-env-set-command/zipball/be51ce036f8d5c935a5bb2d21768831a4efd0d17",
-                "reference": "be51ce036f8d5c935a5bb2d21768831a4efd0d17",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "ImLiam\\EnvironmentSetCommand\\EnvironmentSetCommandServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "ImLiam\\EnvironmentSetCommand\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Liam Hammett",
-                    "email": "liam@liamhammett.com",
-                    "homepage": "https://liamhammett.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Set a .env file variable from the command line",
-            "homepage": "https://github.com/imliam/laravel-env-set-command",
-            "keywords": [
-                "artisan",
-                "env",
-                "environment",
-                "imliam",
-                "laravel-env-set-command",
-                "variables"
-            ],
-            "time": "2018-07-13T21:19:43+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -1889,6 +1835,55 @@
                 "uuid"
             ],
             "time": "2019-12-17T08:18:51+00:00"
+        },
+        {
+            "name": "rmccue/requests",
+            "version": "v1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rmccue/Requests.git",
+                "reference": "87932f52ffad70504d93f04f15690cf16a089546"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rmccue/Requests/zipball/87932f52ffad70504d93f04f15690cf16a089546",
+                "reference": "87932f52ffad70504d93f04f15690cf16a089546",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "require-dev": {
+                "requests/test-server": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Requests": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan McCue",
+                    "homepage": "http://ryanmccue.info"
+                }
+            ],
+            "description": "A HTTP library written in PHP, for human beings.",
+            "homepage": "http://github.com/rmccue/Requests",
+            "keywords": [
+                "curl",
+                "fsockopen",
+                "http",
+                "idna",
+                "ipv6",
+                "iri",
+                "sockets"
+            ],
+            "time": "2016-10-13T00:11:37+00:00"
         },
         {
             "name": "socialiteproviders/discord",
@@ -3905,6 +3900,60 @@
                 "test"
             ],
             "time": "2016-01-20T08:20:44+00:00"
+        },
+        {
+            "name": "imliam/laravel-env-set-command",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ImLiam/laravel-env-set-command.git",
+                "reference": "be51ce036f8d5c935a5bb2d21768831a4efd0d17"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ImLiam/laravel-env-set-command/zipball/be51ce036f8d5c935a5bb2d21768831a4efd0d17",
+                "reference": "be51ce036f8d5c935a5bb2d21768831a4efd0d17",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ImLiam\\EnvironmentSetCommand\\EnvironmentSetCommandServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ImLiam\\EnvironmentSetCommand\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Liam Hammett",
+                    "email": "liam@liamhammett.com",
+                    "homepage": "https://liamhammett.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Set a .env file variable from the command line",
+            "homepage": "https://github.com/imliam/laravel-env-set-command",
+            "keywords": [
+                "artisan",
+                "env",
+                "environment",
+                "imliam",
+                "laravel-env-set-command",
+                "variables"
+            ],
+            "time": "2018-07-13T21:19:43+00:00"
         },
         {
             "name": "mockery/mockery",

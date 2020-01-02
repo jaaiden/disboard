@@ -12,6 +12,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",
         "laravel/tinker": "^2.0",
+        "rmccue/requests": "^1.7",
         "socialiteproviders/discord": "^2.0"
     },
     "require-dev": {
