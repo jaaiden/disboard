@@ -12,7 +12,7 @@
 */
 
 // Basic Homepage Route
-Route::get('/', function () { return view('home'); });
+Route::get('/', function () { return view('home'); })->name('home');
 
 // Discord Authentication Routes
 Route::prefix('auth')->group(function ()

@@ -7,16 +7,15 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body>
-        
         <nav class="navbar is-dark is-fixed-top">
             <div class="container">
                 <div class="navbar-brand">
-                    <a class="navbar-item"><strong>Disboard</strong></a>
+                    <a class="navbar-item" href="{{ route('home') }}"><strong>Disboard</strong></a>
                 </div>
                 <div class="navbar-start">
-                    <a class="navbar-item" href="#">Home</a>
-                    <a class="navbar-item" href="#">Documentation</a>
-                    <a class="navbar-item" href="#">Github</a>
+                    <a class="navbar-item" href="{{ route('home') }}">Home</a>
+                    <a class="navbar-item" href="https://disboard.dev/docs">Documentation</a>
+                    <a class="navbar-item" href="https://github.com/zackdevine/disboard">Github</a>
                 </div>
                 <div class="navbar-end">
                     @auth
@@ -56,6 +55,5 @@
                 </div>
             </div>
         </section>
-
     </body>
 </html>
