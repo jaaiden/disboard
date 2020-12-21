@@ -20,7 +20,7 @@ Disboard is ***not*** a fully-featured Discord bot site or dashboard. All Disboa
 
 4. Copy the example dotenv file: `cp .env.example .env`
 
-5. Edit `.env` in your favorite text editor, and make sure to change the following values: `APP_NAME, APP_ENV, APP_DEBUG, APP_BASE_URL, DB_CONNECTION, DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD, DISCORD_KEY, DISCORD_SECRET`
+5. Edit `.env` in your favorite text editor, and make sure to change the following values: `APP_NAME, APP_ENV, APP_DEBUG, APP_BASE_URL, DB_CONNECTION, DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD, DISCORD_KEY, DISCORD_SECRET, DISCORD_TOKEN`
 
 6. Save the `.env` file and generate an application key: `php artisan key:generate`
     - **Make sure not to give out this key! Doing so will compromise your database and encryption!**
@@ -41,7 +41,8 @@ Keep in mind this project is just a starting point, so large features may or may
 
 ## Special Thanks
 
-- [Laravel](https://laravel.com) for a great web development framework.
+- [Laravel](https://laravel.com) for a secure and easy-to-develop web framework.
 - [Bulma](https://bulma.io) for a nice looking CSS framework.
+- [FontAwesome](https://fontawesome.io) for a great library of icons.
 - [Socialite](https://github.com/laravel/socialite) for a fluent OAuth implementation interface.
-- [Discord](https://discordapp.com) for a great chat and voice platform.
+- [Discord](https://discordapp.com) for an amazing chat and voice platform.
