@@ -2,14 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Guild;
+
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Cache;
+use Requests;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -17,9 +21,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'user_id', 'username', 'discriminator', 'avatar',
+        'discord_token', 'discord_private_channel'
     ];
 
     /**
@@ -28,16 +31,32 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'discord_token', 'remember_token', 'discord_private_channel',
+        'api_token'
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+
+
+    public function getDisplayName()
+    {
+        return "{$this->username}#{$this->discriminator}";
+    }
+
+    public function getGuildsAttribute()
+    {
+        if (!Cache::has("user.$this->user_id.guilds"))
+        {
+            $guilds = Requests::get(
+                env('DISCORD_API_URL') . '/users/@me/guilds',
+                [
+                    'Content-Type'  => 'application/json',
+                    'Authorization' => "Bearer $this->discord_token"
+                ],
+                []
+            )->body;
+            Cache::put("user.$this->user_id.guilds", json_decode($guilds, true), 120);
+        }
+        return Guild::hydrate(Cache::get("user.$this->user_id.guilds"));
+    }
+
 }

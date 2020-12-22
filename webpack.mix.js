@@ -11,7 +11,12 @@ const mix = require('laravel-mix');
  |
  */
 
+mix.autoload({ 'jquery': [ 'window.$', 'window.jQuery' ] });
+
 mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+    .sass('resources/sass/app.scss', 'public/css')
+    .options(
+    {
+        processCssUrls: false
+    }
+);

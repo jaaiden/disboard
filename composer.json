@@ -12,8 +12,12 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "jenssegers/model": "^1.4",
+        "laravel-notification-channels/discord": "^1.2",
         "laravel/framework": "^8.12",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "rmccue/requests": "^1.7",
+        "socialiteproviders/discord": "^4.1"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

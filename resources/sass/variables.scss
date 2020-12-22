@@ -1,0 +1,15 @@
+$family-sans-serif: 'Maven Pro', sans-serif;
+$family-monospace: 'Ubuntu Mono', sans-serif;
+$blurple: #7289da;
+$info: $blurple;
+$link: $blurple;
+
+.hero
+{
+  box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+}
+
+.hero, .navbar.is-dark, .navbar-link
+{
+  text-shadow: 4px 4px 20px rgba(0,0,0,0.4);
+}
