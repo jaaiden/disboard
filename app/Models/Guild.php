@@ -11,6 +11,7 @@ use Requests;
 
 class Guild extends Model
 {
+
     public function getChannelsAttribute()
     {
         if (!Cache::has("guild.$this->id.channels"))
@@ -25,12 +26,12 @@ class Guild extends Model
             )->body;
             Cache::put("guild.$this->id.channels", json_decode($channels, true), 300);
         }
-        return Channel::hydrate(Cache::get("guild.$this->id.channels"));
+        return Role::hydrate(Cache::get("guild.$this->id.channels"));
     }
 
     public function getRolesAttribute()
     {
-        if (!Cache::has("guild.$this->id.roles"))
+        if (!Cache::has("guild.$this->id.channels"))
         {
             $roles = Requests::get(
                 env('DISCORD_API_URL') . "/guilds/$this->id/roles",

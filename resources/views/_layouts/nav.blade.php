@@ -34,9 +34,16 @@
 
                         <div class="navbar-dropdown is-right">
 
+                            <a class="navbar-item" href="{{ route('app.user') }}">
+                                <span class="icon">
+                                    <i class="fad fa-user fa-fw"></i>
+                                </span>
+                                <span>Profile</span>
+                            </a>
+
                             <a class="navbar-item" href="{{ route('auth.logout') }}">
                                 <span class="icon">
-                                    <i class="fad fa-sign-out-alt"></i>
+                                    <i class="fad fa-sign-out-alt fa-fw"></i>
                                 </span>
                                 <span>Sign out</span>
                             </a>

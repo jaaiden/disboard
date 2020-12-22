@@ -13,7 +13,7 @@
                 <div class="level-item">
                     <p class="has-text-right">
                         Powered by <strong><a href="https://disboard.dev">Disboard</a></strong>.<br>
-                        {{-- <span class="is-size-7">Website version {{ getGitCommitVersion() }}</span>. --}}
+                        <span class="is-size-7">Website version {{ getGitCommitVersion() }}</span>.
                     </p>
                 </div>
             </div>

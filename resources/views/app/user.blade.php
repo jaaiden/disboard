@@ -41,41 +41,23 @@
         <div class="container">
             <div class="content">
 
-                <h1 class="title is-4">User Guilds <small><code>Auth::user()->guilds</code></small></h1>
+                <h1 class="title is-4">User Guilds</h1>
                 
-                @forelse (Auth::user()->guilds as $guild)
-
-                    <div class="columns">
-                    
-                        <div class="column">
-                            <div class="notification">
-                                <article class="media">
-                                    <figure class="media-left">
-                                        <p class="image is-48x48">
-                                            <img class="is-rounded" src="{{ $guild->image }}"/>
-                                        </p>
-                                    </figure>
-                                    <div class="media-content">
-                                        <div class="content is-small">
-                                            <h1 class="title is-4">{{ $guild->name }}</h1>
-                                            <h2 class="subtitle is-6">{{ number_format($guild->channels->count()) }} channels</h2>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                        </div>
-
-                        <div class="column">
-                            <pre><code>{{ var_dump($guild) }}</code></pre>
-                        </div>
-                    
+                <div class="columns">
+                
+                    <div class="column">
+                        <ul>
+                            @foreach (Auth::user()->guilds as $guild)
+                            <li>{{ $guild->name }} ({{ $guild->id }})</li>
+                            @endforeach
+                        </ul>
                     </div>
 
-                @empty
-
-                    <p>You are not in any guilds!</p>
-
-                @endforelse
+                    <div class="column">
+                        <pre><code>{{ var_dump(Auth::user()->guilds) }}</code></pre>
+                    </div>
+                
+                </div>
 
             </div>
         </div>
