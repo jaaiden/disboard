@@ -12,6 +12,24 @@ use Requests;
 class Guild extends Model
 {
 
+    public static function fromId($guildid = null)
+    {
+        if (is_null($guildid)) return;
+        if (!Cache::has("guild.$guildid"))
+        {
+            $guild = Requests::get(
+                env('DISCORD_API_URL') . "/guilds/$guildid",
+                [
+                    'Content-Type'  => 'application/json',
+                    'Authorization' => 'Bot ' . env('DISCORD_TOKEN')
+                ],
+                []
+            )->body;
+            Cache::put("guild.$guildid", json_decode($guild, true), 300);
+        }
+        return Guild::hydrate(Cache::get("guild.$guildid"));
+    }
+
     public function getChannelsAttribute()
     {
         if (!Cache::has("guild.$this->id.channels"))
@@ -26,12 +44,12 @@ class Guild extends Model
             )->body;
             Cache::put("guild.$this->id.channels", json_decode($channels, true), 300);
         }
-        return Role::hydrate(Cache::get("guild.$this->id.channels"));
+        return Channel::hydrate(Cache::get("guild.$this->id.channels"));
     }
 
     public function getRolesAttribute()
     {
-        if (!Cache::has("guild.$this->id.channels"))
+        if (!Cache::has("guild.$this->id.roles"))
         {
             $roles = Requests::get(
                 env('DISCORD_API_URL') . "/guilds/$this->id/roles",

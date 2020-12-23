@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="has-navbar-fixed-top">
+<html>
     
     <head>
         <meta charset="utf-8">
@@ -12,13 +12,11 @@
 
     <body>
 
-        @include ('_layouts.nav')
-
         <section class="hero @yield('hero.size', 'is-large') @yield('hero.color', 'is-dark') is-bold" id="page-header">
         
             <div class="hero-head">
             
-                @yield ('hero.head')
+                @include ('_layouts.nav')
 
             </div>
 

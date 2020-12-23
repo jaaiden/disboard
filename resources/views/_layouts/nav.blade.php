@@ -1,4 +1,4 @@
-<nav class="navbar is-fixed-top is-dark">
+<nav class="navbar is-transparent">
     <div class="container">
         <div class="navbar-brand">
             <a class="navbar-item" href="{{ route('app.home') }}">{{ config('app.name') }}</a>
@@ -16,9 +16,16 @@
 
                 <a class="navbar-item" href="{{ route('app.home') }}">
                     <span class="icon">
-                        <i class="fad fa-home"></i>
+                        <i class="fad fa-home fa-fw"></i>
                     </span>
                     <span>Home</span>
+                </a>
+
+                <a class="navbar-item" href="{{ route('docs.home') }}">
+                    <span class="icon">
+                        <i class="fad fa-terminal fa-fw"></i>
+                    </span>
+                    <span>Docs</span>
                 </a>
 
             </div>

@@ -27,6 +27,31 @@
         <p>A guild model will represent the <a href="https://discord.com/developers/docs/resources/guild#guild-object-guild-structure">Discord Guild structure</a> when successfully returned. You can access these directly using the <code>-></code> operator.</p>
     </section>
 
+    <section class="section" id="functions">
+        <h1 class="title is-4">
+            <a href="#functions">
+                <i class="fal fa-hashtag fa-fw"></i>
+            </a>
+            Functions
+        </h1>
+
+        <div class="notification">
+            <h2 class="subtitle is-6"><strong>fromId($guildid)</strong></h2>
+            <p>Returns a guild object from the provided guild id.</p>
+            <br>
+            <pre><code class="php">
+//...
+@verbatim
+if ($guild = Guild::fromId(662460663167320084))
+{
+    {{ $guild->name }}
+}
+@endverbatim
+            </code></pre>
+        </div>
+
+    </section>
+
     <section class="section" id="collections">
         <h1 class="title is-4">
             <a href="#collections">
