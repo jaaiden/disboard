@@ -9,19 +9,19 @@
             <h1 class="title is-2">Welcome to {{ config('app.name') }}!</h1>
             <h2 class="subtitle is-4">A secure and robust starting template for crafing Discord bot web applications.</h2>
             <div class="buttons">
-                <a href="#" class="button is-dark">
+                <a href="#about-disboard" class="button is-dark">
                     <span class="icon">
                         <i class="fad fa-chevron-down"></i>
                     </span>
                     <span>Learn more</span>
                 </a>
-                <a href="#" class="button is-dark">
+                <a href="{{ route('docs.home') }}" class="button is-dark">
                     <span class="icon">
                         <i class="fad fa-terminal"></i>
                     </span>
                     <span>Get started</span>
                 </a>
-                <a href="#" class="button is-dark">
+                <a href="https://github.com/zackdevine/disboard" target="_blank" class="button is-dark">
                     <span class="icon">
                         <i class="fab fa-github"></i>
                     </span>
@@ -38,7 +38,7 @@
     <section class="section">
         <div class="container">
 
-            <div class="content">
+            <div class="content" id="about-disboard">
                 <h1 class="title is-4">What is Disboard?</h1>
                 <p>Disboard is a boilerplate for developing web applications for Discord bots. It is a starting point for web developers to have Discord user authentication built in to the application from the start. Developers can utilize this boilerplate to start working on their site idea without being dragged down with the hassle of setting up authentication systems, security, encryption, and every other tedius task that prevents them from working on their idea.</p>
             </div>
