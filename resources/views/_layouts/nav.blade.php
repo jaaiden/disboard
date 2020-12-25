@@ -18,14 +18,21 @@
                     <span class="icon">
                         <i class="fad fa-home fa-fw"></i>
                     </span>
-                    <span>Home</span>
+                    <span>&nbsp;&nbsp;Home</span>
                 </a>
 
                 <a class="navbar-item" href="{{ route('docs.home') }}">
                     <span class="icon">
                         <i class="fad fa-terminal fa-fw"></i>
                     </span>
-                    <span>Docs</span>
+                    <span>&nbsp;&nbsp;Docs</span>
+                </a>
+
+                <a class="navbar-item" href="https://github.com/zackdevine/disboard" target="_blank">
+                    <span class="icon">
+                        <i class="fab fa-github fa-fw"></i>
+                    </span>
+                    <span>&nbsp;&nbsp;GitHub</span>
                 </a>
 
             </div>

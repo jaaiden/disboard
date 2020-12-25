@@ -35,7 +35,10 @@ class User extends Authenticatable
         'api_token'
     ];
 
-
+    public function routeNotificationForDiscord()
+    {
+        return $this->discord_private_channel;
+    }
 
     public function getDisplayName()
     {

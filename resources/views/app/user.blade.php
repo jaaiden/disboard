@@ -8,7 +8,7 @@
             
         <article class="media">
             <figure class="media-left">
-                <p class="image">
+                <p class="image is-128x128">
                     <img class="is-rounded" src="{{ Auth::user()->avatar }}"/>
                 </p>
             </figure>

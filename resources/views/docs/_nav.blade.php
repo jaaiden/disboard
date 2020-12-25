@@ -55,12 +55,26 @@
         </li>
     </ul>
 
-    <p class="menu-label">Templates</p>
+    <p class="menu-label">Extending Disboard</p>
     <ul class="menu-list">
         <li>
-            <a href="{{ url('docs/templates/home') }}" class="{{ Request::is('docs/templates/home') ? 'has-text-info' : '' }}">
+            <a href="{{ url('docs/extend/templating') }}" class="{{ Request::is('docs/extend/templating') ? 'has-text-info' : '' }}">
                 <i class="fad fa-brackets-curly fa-lg fa-fw"></i>
-                &nbsp;&nbsp;Getting started
+                &nbsp;&nbsp;Blade Templating
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url('docs/extend/notifications') }}" class="{{ Request::is('docs/extend/notifications') ? 'has-text-info' : '' }}">
+                <i class="fad fa-bell-on fa-lg fa-fw"></i>
+                &nbsp;&nbsp;Notifications
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url('docs/extend/helpers') }}" class="{{ Request::is('docs/extend/helpers') ? 'has-text-info' : '' }}">
+                <i class="fad fa-hands-heart fa-lg fa-fw"></i>
+                &nbsp;&nbsp;Helpers
             </a>
         </li>
     </ul>
