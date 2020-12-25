@@ -33,7 +33,7 @@ class AuthController extends Controller
                 [
                     'username'                  => $discordUser->getName(),
                     'discriminator'             => $discordUser['discriminator'],
-                    'avatar'                    => $this->getAvatar($discordUser->avatar) ?? null,
+                    'avatar'                    => dapi_getUserAvatar($discordUser->getId(), $discordUser['discriminator']) ?? null,
                     'discord_token'             => $discordUser->token,
                     'discord_private_channel'   => app(Discord::class)->getPrivateChannel($discordUser->getId())
                 ]
@@ -53,15 +53,6 @@ class AuthController extends Controller
         Auth::user()->save();
         Auth::logout();
         return redirect('/');
-    }
-
-    private function getAvatar($avatar)
-    {
-        if (Str::startsWith(collect(explode('/', $avatar))->last(), 'a_'))
-        {
-            return substr_replace($avatar, 'gif', -3);
-        }
-        return $avatar;
     }
 
 }

@@ -47,6 +47,39 @@ function dapi ($url, $method = 'get', $asUser = false, $user = null, $opts = arr
     }
 }
 
+function dapi_getUserAvatar($userid, $discrim = "0001")
+{
+    if (!Cache::has("user.$userid.avatar"))
+    {
+        $avatar_hash = dapi("users/$userid")['avatar'];
+        $file_url = '';
+        if (isset($avatar_hash))
+        {
+            $cdn_url = "https://cdn.discordapp.com/avatars/$userid";
+            if (Str::startsWith($avatar_hash, 'a_'))
+            {
+                // Avatar is a gif (animated)
+                $file_url = "$cdn_url/$avatar_hash.gif?size=2048";
+            }
+            else
+            {
+                // Get standard image as png
+                $file_url = "$cdn_url/$avatar_hash.png?size=2048";
+            }
+
+            Cache::put("user.$userid.avatar", $file_url, 600);
+        }
+        else
+        {
+            $default_id = intval($discrim) % 5;
+            $file_url = "https://cdn.discordapp.com/embed/avatars/$default_id.png";
+            Cache::put("user.$userid.avatar", $file_url, 600);
+        }
+    }
+
+    return Cache::get("user.$userid.avatar", asset('favicon.png'));
+}
+
 function dapi_getUserGuilds(User $user)
 {
     if (!Cache::has("user.guilds"))
