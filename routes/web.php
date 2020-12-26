@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Project;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,5 +25,25 @@ Route::prefix('/docs')->group(function ()
     Route::get('{category}/{page}', function($category, $page)
     {
         return view("docs.$category.$page") ?? abort(404);
+    });
+});
+
+Route::prefix('/projects')->group(function ()
+{
+    Route::view('/', 'projects.home')->name('projects.home');
+    Route::get('/add', [ProjectController::class, 'addProject'])->name('projects.add');
+    Route::post('/add', [ProjectController::class, 'post_addProject'])->name('projects.add');
+    Route::get('/view/{id}', function ($id)
+    {
+        if ($project = Project::firstWhere('uuid', $id))
+        {
+            views($project)->record();
+            return view('projects.view', [ 'project' => $project]);
+        }
+        abort(404);
+    });
+    Route::get('/{category}', function ($category)
+    {
+        return view("projects.categories.$category", [ 'projects' => Project::fromCategory($category)->paginate(10) ]) ?? abort(404);
     });
 });
