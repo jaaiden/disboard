@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 // Git functions
 function getCurrentGitCommit ($short = false)
 {
-    if ($hash = file_get_contents(base_path('.git/refs/heads/master')))
+    if ($hash = file_get_contents(base_path('.git/refs/heads/' . env('GIT_BRANCH', 'master'))))
         return $short ? trim(substr($hash, 0, 7)) : trim($hash);
     else return false;
 }
