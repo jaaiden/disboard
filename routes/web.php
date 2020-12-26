@@ -44,6 +44,6 @@ Route::prefix('/projects')->group(function ()
     });
     Route::get('/{category}', function ($category)
     {
-        return view("projects.categories.$category", [ 'projects' => Project::fromCategory($category)->paginate(10) ]) ?? abort(404);
+        return view("projects.category", [ 'projects' => Project::fromCategory($category)->paginate(10), 'category' => $category ]) ?? abort(404);
     });
 });
