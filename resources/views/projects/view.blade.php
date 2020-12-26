@@ -30,6 +30,7 @@
         <div class="content">
 
             <p>{{ $project->description }}</p>
+            <p><a href="{{ $project->project_url }}" target="_blank"><i class="fad fa-chevron-right fa-fw fa-lg"></i> Visit {{ $project->name }}</a></p>
             
         </div>
     </section>
