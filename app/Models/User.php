@@ -45,6 +45,11 @@ class User extends Authenticatable
         return "{$this->username}#{$this->discriminator}";
     }
 
+    public static function fromId($id)
+    {
+        return dapi_getUser($id);
+    }
+
     public function getGuildsAttribute()
     {
         if (!Cache::has("user.$this->user_id.guilds"))

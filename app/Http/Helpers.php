@@ -80,6 +80,15 @@ function dapi_getUserAvatar($userid, $discrim = "0001")
     return Cache::get("user.$userid.avatar", asset('favicon.png'));
 }
 
+function dapi_getUser($userid)
+{
+    if (!Cache::has("user.$userid.info"))
+    {
+        Cache::put("user.$userid.info", collect(dapi("users/$userid")), 120);
+    }
+    return User::hydrate(Cache::get("user.$userid.info"));
+}
+
 function dapi_getUserGuilds(User $user)
 {
     if (!Cache::has("user.guilds"))
