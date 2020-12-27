@@ -84,7 +84,7 @@ function dapi_getUser($userid)
 {
     if (!Cache::has("user.$userid.info"))
     {
-        Cache::put("user.$userid.info", collect(dapi("users/$userid")), 120);
+        Cache::put("user.$userid.info", dapi("users/$userid"), 120);
     }
     return User::hydrate(Cache::get("user.$userid.info"));
 }

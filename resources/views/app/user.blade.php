@@ -1,3 +1,5 @@
+@php use App\Models\User; @endphp
+
 @extends ('_layouts.base')
 
 @section ('page.title', Auth::user()->getDisplayName())
@@ -32,6 +34,17 @@
 
                 <h1 class="title is-4">Disboard User Object</h1>
                 <pre><code>{{ var_dump(Auth::user()->toArray()) }}</code></pre>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="content">
+
+                <h1 class="title is-4">Discord User Object</h1>
+                <pre><code>{{ var_dump(User::fromId(Auth::user()->user_id)->toArray()) }}</code></pre>
 
             </div>
         </div>
