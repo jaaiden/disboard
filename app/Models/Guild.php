@@ -17,15 +17,8 @@ class Guild extends Model
         if (is_null($guildid)) return;
         if (!Cache::has("guild.$guildid"))
         {
-            $guild = Requests::get(
-                env('DISCORD_API_URL') . "/guilds/$guildid",
-                [
-                    'Content-Type'  => 'application/json',
-                    'Authorization' => 'Bot ' . env('DISCORD_TOKEN')
-                ],
-                []
-            )->body;
-            Cache::put("guild.$guildid", json_decode($guild, true), 300);
+            $guild = dapi("guilds/$guildid");
+            Cache::put("guild.$guildid", $guild, env('DISCORD_API_CACHE_TIME'));
         }
         return Guild::hydrate(Cache::get("guild.$guildid"));
     }

@@ -67,13 +67,13 @@ function dapi_getUserAvatar($userid, $discrim = "0001")
                 $file_url = "$cdn_url/$avatar_hash.png?size=2048";
             }
 
-            Cache::put("user.$userid.avatar", $file_url, 600);
+            Cache::put("user.$userid.avatar", $file_url, env('DISCORD_API_CACHE_TIME'));
         }
         else
         {
             $default_id = intval($discrim) % 5;
             $file_url = "https://cdn.discordapp.com/embed/avatars/$default_id.png";
-            Cache::put("user.$userid.avatar", $file_url, 600);
+            Cache::put("user.$userid.avatar", $file_url, env('DISCORD_API_CACHE_TIME'));
         }
     }
 
@@ -84,7 +84,7 @@ function dapi_getUser($userid)
 {
     if (!Cache::has("user.$userid.info"))
     {
-        Cache::put("user.$userid.info", dapi("users/$userid"), 120);
+        Cache::put("user.$userid.info", dapi("users/$userid"), env('DISCORD_API_CACHE_TIME'));
     }
     return User::hydrate(Cache::get("user.$userid.info"));
 }
@@ -93,7 +93,7 @@ function dapi_getUserGuilds(User $user)
 {
     if (!Cache::has("user.guilds"))
     {
-        Cache::put("user.guilds", collect(dapi("users/@me/guilds", true, $user)), 300);
+        Cache::put("user.guilds", collect(dapi("users/@me/guilds", true, $user)), env('DISCORD_API_CACHE_TIME'));
     }
     return Cache::get("user.guilds");
 }
@@ -102,7 +102,7 @@ function dapi_getGuild($id)
 {
     if (!Cache::has("guild.$id"))
     {
-        Cache::put("guild.$id", collect(dapi("guild/$id")), 300);
+        Cache::put("guild.$id", collect(dapi("guild/$id")), env('DISCORD_API_CACHE_TIME'));
     }
     return Cache::get("guild.$id");
 }
